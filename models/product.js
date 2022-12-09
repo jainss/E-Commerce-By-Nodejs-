@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const p = "C:/Node-js/lecture-1/data/products.json"
+const p = "C:/Node-js/lecture-1/data/products.json";
+
 const getProductFromFile=cb=>{
   fs.readFile(p, (err, fileContent) => {
     if (err) {
@@ -27,6 +28,17 @@ module.exports = class Product {
       fs.writeFile(p, JSON.stringify(products), err => {
         console.log(err);
       });
+    });
+  }
+
+  static deleteById(id){
+    getProductFromFile(products=>{
+      const updatedProducts=products.filter(p=> p.id !== id);
+      fs.watchFile(p,JSON.stringify(updatedProducts),err=>{
+        if(!err){
+
+        }
+      })
     });
   }
 
