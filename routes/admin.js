@@ -4,7 +4,7 @@ const path = require('path');
 const adminController = require('../Controllers/admin');
 
 router.get("/add-product", adminController.getaddproduct);
-router.get("/products", adminController.getproducts);
+router.get("/products", adminController.getProducts);
 
 router.post("/add-product", adminController.postaddproduct);
 
